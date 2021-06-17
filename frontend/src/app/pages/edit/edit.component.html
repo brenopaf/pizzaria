@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Editar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input [(ngModel)]="produto.name" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Preço</ion-label>
+    <ion-input [(ngModel)]="produto.price" type="text"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-radio-group [(ngModel)]="produto.category">
+      <ion-list-header>
+        <ion-label>Sabor</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Salgada</ion-label>
+        <ion-radio slot="start" value="1"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Doce</ion-label>
+        <ion-radio slot="start" value="2"></ion-radio>
+      </ion-item>  
+      
+    </ion-radio-group>
+
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-textarea [(ngModel)]="produto.desc"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="Salvar()">Salvar</ion-button>
+
+</ion-content>

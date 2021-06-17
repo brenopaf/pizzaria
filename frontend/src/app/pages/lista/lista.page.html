@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>  
+    <ion-title>Todas as pizzas cadastradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let produto of produtos">
+    <ion-card-header>
+      <ion-card-subtitle>{{produto.category == 1 ? 'Salgada' : 'Doce'}}</ion-card-subtitle>
+      <ion-card-title>{{produto.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{produto.desc}}
+    </ion-card-content>
+
+    <ion-item>
+      <ion-button color="primary">Editar</ion-button>
+      <ion-button color="danger">Excluir</ion-button>
+    </ion-item>
+  </ion-card>
+
+</ion-content>
