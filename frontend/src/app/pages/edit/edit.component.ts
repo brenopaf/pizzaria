@@ -1,3 +1,4 @@
+import { ProdutosService } from './../../service/produtos.service';
 import { Product } from './../../model/Product.model';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
@@ -10,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 export class EditComponent implements OnInit {
 
   produto:Product = {name:'', price:0, category:1};
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController, private produtoService:ProdutosService) { }
 
   ngOnInit() {}
 
@@ -22,6 +23,7 @@ export class EditComponent implements OnInit {
     }
     else
     {
+      this.produtoService.salvar(this.produto).subscribe((produto:Product) => console.log(produto));
       console.log('Salvar');
     }
   }
