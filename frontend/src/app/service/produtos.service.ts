@@ -25,4 +25,12 @@ export class ProdutosService {
   {
     return this.httpClient.post<Product>(this.baseUrl, produto);
   }
+
+  lastId():number
+  {
+    let id:number;
+    this.buscaTodos().then((produtos:Product[]) => id = produtos[produtos.length - 1].id + 1);
+
+    return id;
+  }
 }

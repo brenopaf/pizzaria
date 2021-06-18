@@ -2,6 +2,7 @@ import { ProdutosService } from './../../service/produtos.service';
 import { Product } from './../../model/Product.model';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -11,7 +12,7 @@ import { AlertController } from '@ionic/angular';
 export class EditComponent implements OnInit {
 
   produto:Product = {name:'', price:0, category:1};
-  constructor(public alertController: AlertController, private produtoService:ProdutosService) { }
+  constructor(public alertController: AlertController, private produtoService:ProdutosService, private router: Router) { }
 
   ngOnInit() {}
 
@@ -23,8 +24,9 @@ export class EditComponent implements OnInit {
     }
     else
     {
-      this.produtoService.salvar(this.produto).subscribe((produto:Product) => console.log(produto));
-      console.log('Salvar');
+      this.produto.id = this.produtoService.lastId();
+      this.produtoService.salvar(this.produto).subscribe((produto:Product) => this.presentAlertSalvo(produto));
+      
     }
   }
 
@@ -41,6 +43,24 @@ export class EditComponent implements OnInit {
 
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
+  }
+
+  async presentAlertSalvo(produto:Product) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Sucesso!',
+      message: `Pizza <strong>${produto.name}</strong> criado com sucesso!!!`,
+      buttons: [
+         {
+          text: 'Continuar',
+          handler: () => {
+            this.router.navigate(['lista']);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }

@@ -12,7 +12,7 @@
   <ion-card *ngFor="let produto of produtos">
     <ion-card-header>
       <ion-card-subtitle>{{produto.category == 1 ? 'Salgada' : 'Doce'}}</ion-card-subtitle>
-      <ion-card-title>{{produto.name}}</ion-card-title>
+      <ion-card-title>{{produto.id}} - {{produto.name}}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
