@@ -33,4 +33,9 @@ export class ProdutosService {
 
     return id;
   }
+
+  busca(id:number):Observable<Product>
+  {    
+   return this.httpClient.get<Product>(this.baseUrl+id);    
+  }
 }

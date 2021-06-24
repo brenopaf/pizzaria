@@ -2,7 +2,7 @@ import { ProdutosService } from './../../service/produtos.service';
 import { Product } from './../../model/Product.model';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -12,9 +12,23 @@ import { Router } from '@angular/router';
 export class EditComponent implements OnInit {
 
   produto:Product = {name:'', price:0, category:1};
-  constructor(public alertController: AlertController, private produtoService:ProdutosService, private router: Router) { }
+  constructor(public alertController: AlertController, 
+              private produtoService:ProdutosService, 
+              private router: Router,
+              private activeRoute: ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.activeRoute.params.subscribe((parametros) => {
+        if(parametros.id > 0)
+        {
+          this.produtoService.busca(parametros.id).subscribe((produtoEncontrado:Product) => this.produto = produtoEncontrado);
+        }
+        console.log(this.produto);
+    });
+
+
+  }
 
   async Salvar(){
     
