@@ -4,21 +4,21 @@
       "id": 1,
       "name": "Portuguesa",
       "price": 59.89,
-      "category": 1,
+      "category": "1",
       "desc": "A pizza portuguesa é um sabor bastante popular em todas as pizzarias do nosso país. Trazida ao Brasil pelos portugueses, essa receita de pizza pode ser facilmente reproduzida em casa. "
     },
     {
       "id": 2,
       "name": "Abacaxi",
       "price": 49.9,
-      "category": 2,
+      "category": "2",
       "desc": "A pizza de abacaxi é um sabor bastante popular em todas as pizzarias do nosso país. Trazida ao Brasil pelos portugueses, essa receita de pizza pode ser facilmente reproduzida em casa."
     },
     {
       "id": 3,
       "name": "Quatro queijos",
       "price": 69.9,
-      "category": 1,
+      "category": "1",
       "desc": "A pizza de quatro queijos é um sabor bastante popular em todas as pizzarias do nosso país. Trazida ao Brasil pelos portugueses, essa receita de pizza pode ser facilmente reproduzida em casa."
     },
     {
@@ -29,20 +29,15 @@
       "id": 4
     },
     {
-      "name": "Abacaxi",
-      "price": "39.90",
-      "category": "2",
-      "id": 5
-    },
-    {
       "name": "Chocolate",
       "price": "49.90",
       "category": "2",
-      "id": 6
+      "id": 6,
+      "desc": "Deliciosa pizza sabor chocolate."
     },
     {
       "name": "Alho Poró",
-      "price": "49.90",
+      "price": "59.90",
       "category": "1",
       "id": 7
     }

@@ -2,8 +2,14 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+          <ion-label>Breno Pinheiro</ion-label>
+        </ion-item>
         <ion-list id="inbox-list">
-          <ion-list-header>Pizzaria do Cleitinho</ion-list-header>
+          <ion-list-header>Programas</ion-list-header>
           
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false">

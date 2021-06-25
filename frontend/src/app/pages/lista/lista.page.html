@@ -3,11 +3,17 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>  
-    <ion-title>Todas as pizzas cadastradas</ion-title>
+    <ion-title>Pizzas cadastradas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
+
+  <ion-refresher slot="fixed" (ionRefresh)="atualizarLista($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
 
   <ion-card *ngFor="let produto of produtos">
     <ion-card-header>
@@ -21,8 +27,14 @@
 
     <ion-item>
       <ion-button color="primary" routerLink="/edit/{{produto.id}}">Editar</ion-button>
-      <ion-button color="danger">Excluir</ion-button>
+      <ion-button color="danger" (click)="excluir(produto)">Excluir</ion-button>
     </ion-item>
   </ion-card>
 
+    <!-- fab placed to the (vertical) center and end -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button routerLink="/edit/">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>

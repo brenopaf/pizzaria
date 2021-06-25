@@ -2,6 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Editar</ion-title>
   </ion-toolbar>
@@ -38,7 +39,7 @@
 
     <ion-item>
       <ion-label position="floating">Descrição</ion-label>
-      <ion-textarea [(ngModel)]="produto.desc"></ion-textarea>
+      <ion-textarea [(ngModel)]="produto.desc" rows="5"></ion-textarea>
     </ion-item>
   </ion-list>
 

@@ -9,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { } 
+  quantidade:number;
+  constructor(private produtoService:ProdutosService) { } 
 
   ngOnInit() {
-  
+
+    this.produtoService.buscaTodos().then((Produtos:Product[]) => this.quantidade = Produtos.length);
   }
 
   

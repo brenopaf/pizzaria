@@ -23,8 +23,7 @@ export class EditComponent implements OnInit {
         if(parametros.id > 0)
         {
           this.produtoService.busca(parametros.id).subscribe((produtoEncontrado:Product) => this.produto = produtoEncontrado);
-        }
-        console.log(this.produto);
+        }        
     });
 
 
@@ -38,8 +37,15 @@ export class EditComponent implements OnInit {
     }
     else
     {
-      this.produto.id = this.produtoService.lastId();
-      this.produtoService.salvar(this.produto).subscribe((produto:Product) => this.presentAlertSalvo(produto));
+      if(this.produto.id)
+      {        
+        this.produtoService.editar(this.produto).subscribe((produto:Product) => this.presentAlertSalvo(produto));
+      }
+      else
+      {
+        this.produto.id = this.produtoService.lastId();
+        this.produtoService.salvar(this.produto).subscribe((produto:Product) => this.presentAlertSalvo(produto));
+      }
       
     }
   }
@@ -63,7 +69,7 @@ export class EditComponent implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Sucesso!',
-      message: `Pizza <strong>${produto.name}</strong> criado com sucesso!!!`,
+      message: `Pizza <strong>${produto.name}</strong> salvo com sucesso!!!`,
       buttons: [
          {
           text: 'Continuar',
